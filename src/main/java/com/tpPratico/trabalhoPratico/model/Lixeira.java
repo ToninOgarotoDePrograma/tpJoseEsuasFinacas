@@ -1,29 +1,30 @@
 package com.tpPratico.trabalhoPratico.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
 @Entity
-@Table(name = "entries")
+@Table(name = "lixeira")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Cfinancas {
+public class Lixeira {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
+    private long entradaId;
 
-    private String nome ;
+    private String nome;
 
     @Enumerated(EnumType.STRING)
-    private ClassificationEnum clas;
+    private ClassificationEnum clasi;
 
     private double valor;
 
@@ -31,5 +32,6 @@ public class Cfinancas {
 
     private LocalDateTime dataCadastro;
 
+    private LocalDateTime dataExclu;
 
 }
