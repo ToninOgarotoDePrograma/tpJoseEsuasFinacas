@@ -1,5 +1,6 @@
-package com.tpPratico.trabalhoPratico;
+package com.tpPratico.trabalhoPratico.Ninjas;
 
+import com.tpPratico.trabalhoPratico.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 
@@ -16,6 +17,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // muitos pra um, varios ninja tem uma missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Chave estrangeira || Foreing key
+    private MissoesModel missoes;
 
 
     public NinjaModel() {
